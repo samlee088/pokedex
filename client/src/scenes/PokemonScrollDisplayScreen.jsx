@@ -51,15 +51,13 @@ const PokemonScrollDisplayScreen = () => {
           backgroundColor: "#ddd",
           borderRadius: "10px",
           padding: "10px",
-          margin: "-100px",
           justifyContent: "center",
-          marginRight: "auto",
-          marginLeft: "auto",
-          width: "70%",
-          alignItems: "center",
+          width: "130vh",
         }}
       >
-        <ul style={{ margin: "5px" }}> {dots} </ul>
+        <Box>
+          <ul style={{ margin: "5px" }}> {dots} </ul>
+        </Box>
       </Box>
     ),
     customPaging: (i) => (

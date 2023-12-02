@@ -4,3 +4,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.slick-list {
+  margin-top: 10%;
+}
+
+.slick-track {
+  margin-bottom: 10%;
+}
