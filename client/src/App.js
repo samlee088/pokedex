@@ -8,8 +8,11 @@ function App() {
     <div className="Pokedex">
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<HomepageLayout />} /> */}
-          <Route path="/" element={<PokemonScrollDisplayScreen />} />
+          <Route path="/" element={<HomepageLayout />} />
+          <Route
+            path="/allPokemonScrollDisplay"
+            element={<PokemonScrollDisplayScreen />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
