@@ -15,29 +15,16 @@ const PokemonScrollDisplayScreen = () => {
 
       for (let i = 1; i < 151; i++) {
         const request = await axios.get(`/pokemon/${i}`);
-        array.push([request.data.name]);
+        array.push({
+          pokemonName: request.data.name,
+          pokemonSprite: request.data.sprites.front_default,
+        });
       }
       setPokemonData(array);
     }
 
     fetchData();
   }, []);
-
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 3,
-  //   vertical: true,
-  //   verticalSwiping: true,
-  //   swipeToSlide: true,
-  //   beforeChange: function (currentSlide, nextSlide) {
-  //     console.log("before change", currentSlide, nextSlide);
-  //   },
-  //   afterChange: function (currentSlide) {
-  //     console.log("after change", currentSlide);
-  //   },
-  // };
 
   const settings = {
     dots: true,
@@ -52,7 +39,7 @@ const PokemonScrollDisplayScreen = () => {
           borderRadius: "10px",
           padding: "10px",
           justifyContent: "center",
-          width: "130vh",
+          width: "100%",
         }}
       >
         <Box>
@@ -74,13 +61,25 @@ const PokemonScrollDisplayScreen = () => {
   };
   return (
     <div className="pageLayout">
-      <Slider {...settings}>
-        {pokemonData.map((x, index) => (
-          <div key={index}>
-            <h1>{x}</h1>
-          </div>
-        ))}
-      </Slider>
+      <Box
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Box style={{ width: "70%" }}>
+          <Slider {...settings}>
+            {pokemonData.map((x, index) => (
+              <div key={index}>
+                <h1>{x.pokemonName}</h1>
+                <img src={x.pokemonSprite} />
+              </div>
+            ))}
+          </Slider>
+        </Box>
+      </Box>
     </div>
   );
 };
