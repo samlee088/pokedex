@@ -12,3 +12,17 @@
 .slick-track {
   margin-bottom: 30%;
 }
+
+.pokemonSpriteDisplay {
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: auto;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}

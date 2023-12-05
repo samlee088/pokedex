@@ -13,7 +13,7 @@ const PokemonScrollDisplayScreen = () => {
     async function fetchData() {
       let array = [];
 
-      for (let i = 1; i < 151; i++) {
+      for (let i = 1; i < 1009; i++) {
         const request = await axios.get(`/pokemon/${i}`);
         array.push({
           pokemonName: request.data.name,
@@ -69,12 +69,16 @@ const PokemonScrollDisplayScreen = () => {
           height: "100vh",
         }}
       >
-        <Box style={{ width: "70%" }}>
+        <Box style={{ width: "80%" }}>
           <Slider {...settings}>
             {pokemonData.map((x, index) => (
               <div key={index}>
                 <h1>{x.pokemonName}</h1>
-                <img src={x.pokemonSprite} />
+                <img
+                  className="pokemonSpriteDisplay"
+                  src={x.pokemonSprite}
+                  alt={x.pokemonName}
+                />
               </div>
             ))}
           </Slider>
