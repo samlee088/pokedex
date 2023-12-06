@@ -3,17 +3,17 @@ import axios from "utils/axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./PokemonScrollDisplayScreen.css";
+import "./PokemonScrollDisplayScreenGen.css";
 import { Box } from "@mui/material";
 
-const PokemonScrollDisplayScreen = () => {
+const PokemonScrollDisplayScreenGenTwo = () => {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       let array = [];
 
-      for (let i = 1; i < 1009; i++) {
+      for (let i = 152; i < 251; i++) {
         const request = await axios.get(`/pokemon/${i}`);
         array.push({
           pokemonName: request.data.name,
@@ -88,4 +88,4 @@ const PokemonScrollDisplayScreen = () => {
   );
 };
 
-export default PokemonScrollDisplayScreen;
+export default PokemonScrollDisplayScreenGenTwo;

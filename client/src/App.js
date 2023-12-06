@@ -1,7 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomepageLayout from "scenes/HomepageLayout";
-import PokemonScrollDisplayScreen from "scenes/PokemonScrollDisplayScreen";
+import PokemonScrollDisplayScreenGenOne from "scenes/PokemonScrollDisplayScreenGenOne";
+import PokemonScrollDisplayScreenGenTwo from "scenes/PokemonScrollDisplayScreenGenTwo";
+import PokemonScrollDisplayScreenGenThree from "scenes/PokemonScrollDisplayScreenGenThree";
 
 function App() {
   return (
@@ -10,8 +12,16 @@ function App() {
         <Routes>
           <Route path="/" element={<HomepageLayout />} />
           <Route
-            path="/allPokemonScrollDisplay"
-            element={<PokemonScrollDisplayScreen />}
+            path="/PokemonScrollDisplayScreenGenOne"
+            element={<PokemonScrollDisplayScreenGenOne />}
+          />
+          <Route
+            path="/PokemonScrollDisplayScreenGenTwo"
+            element={<PokemonScrollDisplayScreenGenTwo />}
+          />
+          <Route
+            path="/PokemonScrollDisplayScreenGenThree"
+            element={<PokemonScrollDisplayScreenGenThree />}
           />
         </Routes>
       </BrowserRouter>
