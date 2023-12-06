@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 const LoadingDisplay = () => {
   return (
     <Box>
+      <h1>Loading Hold Please 😊💕🥲😐</h1>
       <img
         src={SnorlaxSleeping}
         alt="Loading... Loading..."
