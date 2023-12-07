@@ -7,6 +7,8 @@ import CharmanderMarshmellowGif from "components/CharmanderMarshemllowGif";
 import CharmanderImageGif from "components/CharmanderImageGif";
 import { Link } from "react-router-dom";
 
+import CharmeleonImage from "components/CharmeleonImageGif";
+
 const HomepageLayout = () => {
   return (
     <Box className="mainPageLayout">
@@ -26,6 +28,11 @@ const HomepageLayout = () => {
       <Link to="PokemonScrollDisplayScreenGenThree">
         <Box style={{ display: "inline-block" }}>
           <CharmanderImageGif />
+        </Box>
+      </Link>
+      <Link to="PokemonScrollDisplayScreenGenFour">
+        <Box style={{ display: "inline-block" }}>
+          <CharmeleonImage />
         </Box>
       </Link>
     </Box>

@@ -10,22 +10,22 @@ import LoadingDisplay from "components/LoadingDisplay";
 const PokemonScrollDisplayScreenGenOne = () => {
   const [pokemonData, setPokemonData] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     let array = [];
+  useEffect(() => {
+    async function fetchData() {
+      let array = [];
 
-  //     for (let i = 1; i < 151; i++) {
-  //       const request = await axios.get(`/pokemon/${i}`);
-  //       array.push({
-  //         pokemonName: request.data.name,
-  //         pokemonSprite: request.data.sprites.front_default,
-  //       });
-  //     }
-  //     setPokemonData(array);
-  //   }
+      for (let i = 1; i < 151; i++) {
+        const request = await axios.get(`/pokemon/${i}`);
+        array.push({
+          pokemonName: request.data.name,
+          pokemonSprite: request.data.sprites.front_default,
+        });
+      }
+      setPokemonData(array);
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   const settings = {
     dots: true,

@@ -4,6 +4,7 @@ import HomepageLayout from "scenes/HomepageLayout";
 import PokemonScrollDisplayScreenGenOne from "scenes/PokemonScrollDisplayScreenGenOne";
 import PokemonScrollDisplayScreenGenTwo from "scenes/PokemonScrollDisplayScreenGenTwo";
 import PokemonScrollDisplayScreenGenThree from "scenes/PokemonScrollDisplayScreenGenThree";
+import PokemonScrollDisplayScreenGenFour from "scenes/PokemonScrollDisplayScreenGenFour";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route
             path="/PokemonScrollDisplayScreenGenThree"
             element={<PokemonScrollDisplayScreenGenThree />}
+          />
+          <Route
+            path="/PokemonScrollDisplayScreenGenFour"
+            element={<PokemonScrollDisplayScreenGenFour />}
           />
         </Routes>
       </BrowserRouter>
