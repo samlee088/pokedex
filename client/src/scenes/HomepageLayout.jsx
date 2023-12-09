@@ -19,49 +19,49 @@ const HomepageLayout = () => {
       <h1>Pokedex Main Intro Page</h1>
       <CharzardImage />
 
-      <Box>
-        <Link to="PokemonScrollDisplayScreenGenOne">
-          <Box style={{ display: "inline-block" }}>
+      <Box class="generationLayOut">
+        <Link to="PokemonScrollDisplayScreenGenOne" className="boxLink">
+          <Box className="box">
             <CharzardImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenTwo">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">
+          <Box className="box">
             <CharmanderMarshmellowGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenThree">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenThree" className="boxLink">
+          <Box className="box">
             <CharmanderImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenFour">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenFour" className="boxLink">
+          <Box className="box">
             <CharmeleonImage />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenFive">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenFive" className="boxLink">
+          <Box className="box">
             <BulbasaurCuteImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenSix">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenSix" className="boxLink">
+          <Box className="box">
             <SquirtleEatingImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenSeven">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenSeven" className="boxLink">
+          <Box className="box">
             <SquirtleGroupImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenEight">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenEight" className="boxLink">
+          <Box className="box">
             <PikachuImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenNine">
-          <Box style={{ display: "inline-block" }}>
+        <Link to="PokemonScrollDisplayScreenGenNine" className="boxLink">
+          <Box className="box">
             <PikachuWateringPlantImageGif />
           </Box>
         </Link>
