@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./PokemonScrollDisplayScreenGen.css";
 import { Box } from "@mui/material";
+import LoadingDisplay from "components/LoadingDisplay";
 
 const PokemonScrollDisplayScreenGenSeven = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -69,20 +70,24 @@ const PokemonScrollDisplayScreenGenSeven = () => {
           height: "100vh",
         }}
       >
-        <Box style={{ width: "80%" }}>
-          <Slider {...settings}>
-            {pokemonData.map((x, index) => (
-              <div key={index}>
-                <h1>{x.pokemonName}</h1>
-                <img
-                  className="pokemonSpriteDisplay"
-                  src={x.pokemonSprite}
-                  alt={x.pokemonName}
-                />
-              </div>
-            ))}
-          </Slider>
-        </Box>
+        {pokemonData.length > 0 ? (
+          <Box style={{ width: "80%" }}>
+            <Slider {...settings}>
+              {pokemonData.map((x, index) => (
+                <div key={index}>
+                  <h1>{x.pokemonName}</h1>
+                  <img
+                    className="pokemonSpriteDisplay"
+                    src={x.pokemonSprite}
+                    alt={x.pokemonName}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </Box>
+        ) : (
+          <LoadingDisplay />
+        )}
       </Box>
     </div>
   );
