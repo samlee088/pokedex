@@ -29,7 +29,8 @@
 .generationLayOut {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 16px; /* Adjust the gap between boxes as needed */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 16px;
   margin-top: 20px;
 }

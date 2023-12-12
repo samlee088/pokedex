@@ -10,6 +10,7 @@ import PokemonScrollDisplayScreenGenSix from "scenes/PokemonScrollDisplayScreenG
 import PokemonScrollDisplayScreenGenSeven from "scenes/PokemonScrollDisplayScreenGenSeven";
 import PokemonScrollDisplayScreenGenEight from "scenes/PokemonScrollDisplayScreenGenEight";
 import PokemonScrollDisplayScreenGenNine from "scenes/PokemonScrollDisplayScreenGenNine";
+import SinglePokemonDisplay from "scenes/SinglePokemonDisplay";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             path="/PokemonScrollDisplayScreenGenNine"
             element={<PokemonScrollDisplayScreenGenNine />}
           />
+          <Route path="/SinglePokemon" element={<SinglePokemonDisplay />} />
         </Routes>
       </BrowserRouter>
     </div>

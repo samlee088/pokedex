@@ -25,7 +25,7 @@ const HomepageLayout = () => {
             <CharzardImageGif />
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">
+        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">z
           <Box className="box">
             <CharmanderMarshmellowGif />
           </Box>

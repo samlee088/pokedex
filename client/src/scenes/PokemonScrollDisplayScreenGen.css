@@ -20,6 +20,7 @@
   align-items: center;
   width: 30%;
   height: auto;
+  cursor: pointer;
 }
 
 .slick-prev:before,
