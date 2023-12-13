@@ -3,6 +3,7 @@ import "./SinglePokemonDisplay.css";
 import { Box } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import axios from "utils/axios";
+import SingleImageDisplay from "components/SingleImageDisplay";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
@@ -26,6 +27,12 @@ const SinglePokemonDisplay = () => {
     <Box>
       <h1>{pokemonSelectedInformation.name}</h1>
       <h2>{pokemonSelectedInformation.weight}</h2>
+      {pokemonSelectedInformation != "" && (
+        <SingleImageDisplay
+          imageData={pokemonSelectedInformation.sprites.front_default}
+          pokemonName={pokemonSelectedInformation.name}
+        />
+      )}
     </Box>
   );
 };
