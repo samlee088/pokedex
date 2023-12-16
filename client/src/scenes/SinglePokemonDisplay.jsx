@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
+import PokemonTriviaDisplay from "components/PokemonTriviaDisplay";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const SinglePokemonDisplay = () => {
     async function singlePokemon(pokemonSelection) {
       const request = await axios.get(`/pokemon/${pokemonSelection}`);
       setPokemonSelectedInformation(request.data);
-      console.log(request.data);
+
       return request;
     }
     singlePokemon(location.state.pokemonSelection);
@@ -28,10 +29,13 @@ const SinglePokemonDisplay = () => {
       <h1>{pokemonSelectedInformation.name}</h1>
       <h2>{pokemonSelectedInformation.weight}</h2>
       {pokemonSelectedInformation != "" && (
-        <SingleImageDisplay
-          imageData={pokemonSelectedInformation.sprites.front_default}
-          pokemonName={pokemonSelectedInformation.name}
-        />
+        <>
+          <SingleImageDisplay
+            imageData={pokemonSelectedInformation.sprites.front_default}
+            pokemonName={pokemonSelectedInformation.name}
+          />
+          <PokemonTriviaDisplay source={location.state.pokemonSelection} />
+        </>
       )}
     </Box>
   );
