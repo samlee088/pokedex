@@ -26,6 +26,18 @@ const HomepageLayout = () => {
     <PikachuWateringPlantImageGif />,
   ];
 
+  let numberToText = [
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+  ];
+
   return (
     <Box className="mainPageLayout">
       <h1>Pokedex Main Intro Page</h1>
@@ -33,10 +45,10 @@ const HomepageLayout = () => {
 
       <Box className="generationLayOut">
         {imageArray.map((x, index) => {
-          console.log(index);
+          const textFormat = numberToText[index];
           return (
             <Link
-              to={`PokemonScrollDisplayScreenGen${index + 1}`}
+              to={`PokemonScrollDisplayScreenGen${textFormat}`}
               className="boxLink"
               key={index}
             >
