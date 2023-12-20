@@ -14,18 +14,42 @@ import PikachuImageGif from "components/PikachuImageGif";
 import PikachuWateringPlantImageGif from "components/PikachuWateringPlantImageGif";
 
 const HomepageLayout = () => {
+  let imageArray = [
+    <CharzardImageGif />,
+    <CharmanderMarshmellowGif />,
+    <CharmanderImageGif />,
+    <CharmeleonImage />,
+    <BulbasaurCuteImageGif />,
+    <SquirtleEatingImageGif />,
+    <SquirtleGroupImageGif />,
+    <PikachuImageGif />,
+    <PikachuWateringPlantImageGif />,
+  ];
+
   return (
     <Box className="mainPageLayout">
       <h1>Pokedex Main Intro Page</h1>
       <CharzardImage />
 
       <Box class="generationLayOut">
+        {imageArray.map((x, index) => (
+          <Link to={`PokemonScrollDisplayScreenGen${index + 1}`} className="boxLink" key={index}>
+            <Box className="box">
+              {x}
+              <h1>Gen {index + 1}</h1>
+            </Box>
+          </Link>
+        ))}
+      </Box>
+
+      <Box class="generationLayOut">
         <Link to="PokemonScrollDisplayScreenGenOne" className="boxLink">
           <Box className="box">
             <CharzardImageGif />
+            <h1>Gen 1</h1>
           </Box>
         </Link>
-        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">z
+        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">
           <Box className="box">
             <CharmanderMarshmellowGif />
           </Box>
