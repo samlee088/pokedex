@@ -31,64 +31,22 @@ const HomepageLayout = () => {
       <h1>Pokedex Main Intro Page</h1>
       <CharzardImage />
 
-      <Box class="generationLayOut">
-        {imageArray.map((x, index) => (
-          <Link to={`PokemonScrollDisplayScreenGen${index + 1}`} className="boxLink" key={index}>
-            <Box className="box">
-              {x}
-              <h1>Gen {index + 1}</h1>
-            </Box>
-          </Link>
-        ))}
-      </Box>
-
-      <Box class="generationLayOut">
-        <Link to="PokemonScrollDisplayScreenGenOne" className="boxLink">
-          <Box className="box">
-            <CharzardImageGif />
-            <h1>Gen 1</h1>
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenTwo" className="boxLink">
-          <Box className="box">
-            <CharmanderMarshmellowGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenThree" className="boxLink">
-          <Box className="box">
-            <CharmanderImageGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenFour" className="boxLink">
-          <Box className="box">
-            <CharmeleonImage />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenFive" className="boxLink">
-          <Box className="box">
-            <BulbasaurCuteImageGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenSix" className="boxLink">
-          <Box className="box">
-            <SquirtleEatingImageGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenSeven" className="boxLink">
-          <Box className="box">
-            <SquirtleGroupImageGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenEight" className="boxLink">
-          <Box className="box">
-            <PikachuImageGif />
-          </Box>
-        </Link>
-        <Link to="PokemonScrollDisplayScreenGenNine" className="boxLink">
-          <Box className="box">
-            <PikachuWateringPlantImageGif />
-          </Box>
-        </Link>
+      <Box className="generationLayOut">
+        {imageArray.map((x, index) => {
+          console.log(index);
+          return (
+            <Link
+              to={`PokemonScrollDisplayScreenGen${index + 1}`}
+              className="boxLink"
+              key={index}
+            >
+              <Box className="box">{x}</Box>
+              <Box className="box">
+                <h1>Gen {index + 1}</h1>
+              </Box>
+            </Link>
+          );
+        })}
       </Box>
     </Box>
   );
