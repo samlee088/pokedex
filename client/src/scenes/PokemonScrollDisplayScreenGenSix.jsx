@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./PokemonScrollDisplayScreenGen.css";
 import { Box } from "@mui/material";
 import LoadingDisplay from "components/LoadingDisplay";
+import PokedexImageClick from "components/PokedexImageClick";
 
 const PokemonScrollDisplayScreenGenSix = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -19,6 +20,7 @@ const PokemonScrollDisplayScreenGenSix = () => {
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
+          pokemonNumber: `${i}`,
         });
       }
       setPokemonData(array);
@@ -76,11 +78,7 @@ const PokemonScrollDisplayScreenGenSix = () => {
               {pokemonData.map((x, index) => (
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
-                  <img
-                    className="pokemonSpriteDisplay"
-                    src={x.pokemonSprite}
-                    alt={x.pokemonName}
-                  />
+                  <PokedexImageClick pokemonData={x} />
                 </div>
               ))}
             </Slider>

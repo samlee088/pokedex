@@ -7,6 +7,7 @@ import "./PokemonScrollDisplayScreenGen.css";
 import { Box } from "@mui/material";
 
 import LoadingDisplay from "components/LoadingDisplay";
+import PokedexImageClick from "components/PokedexImageClick";
 
 const PokemonScrollDisplayScreenGenTwo = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -20,6 +21,7 @@ const PokemonScrollDisplayScreenGenTwo = () => {
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
+          pokemonNumber: `${i}`,
         });
       }
       setPokemonData(array);
@@ -77,11 +79,7 @@ const PokemonScrollDisplayScreenGenTwo = () => {
               {pokemonData.map((x, index) => (
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
-                  <img
-                    className="pokemonSpriteDisplay"
-                    src={x.pokemonSprite}
-                    alt={x.pokemonName}
-                  />
+                  <PokedexImageClick pokemonData={x} />
                 </div>
               ))}
             </Slider>

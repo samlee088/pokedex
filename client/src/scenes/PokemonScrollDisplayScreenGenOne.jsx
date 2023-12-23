@@ -20,7 +20,7 @@ const PokemonScrollDisplayScreenGenOne = () => {
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
-          pokemonNumber: `${i}`
+          pokemonNumber: `${i}`,
         });
       }
       setPokemonData(array);
