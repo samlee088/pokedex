@@ -17,10 +17,20 @@ const PokemonScrollDisplayScreenGenOne = () => {
 
       for (let i = 1; i < 151; i++) {
         const request = await axios.get(`/pokemon/${i}`);
+        const speciesRequest = await axios.get(`/pokemon-species/${i}`);
+        let speciesRequestTrivia = [];
+        speciesRequest.data.flavor_text_entries.map((x) => {
+          console.log(x);
+          if (x.language.name === "en") {
+            speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
+          }
+          
+        })
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
           pokemonNumber: `${i}`,
+          pokemonTrivia: speciesRequestTrivia,
         });
       }
       setPokemonData(array);
@@ -79,6 +89,9 @@ const PokemonScrollDisplayScreenGenOne = () => {
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
                   <PokedexImageClick pokemonData={x} />
+                  {x.pokemonTrivia.map((x) => {
+        return <h1 id={x}>{x}</h1>;
+      })}
                 </div>
               ))}
             </Slider>

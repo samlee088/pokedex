@@ -9,13 +9,22 @@ const PokemonTriviaDisplay = ({ source }) => {
     async function requestData(pokemonID) {
       const speciesRequest = await axios.get(`/pokemon-species/${pokemonID}`);
       console.log(speciesRequest.data);
-
+      let speciesRequestTrivia = [];
       speciesRequest.data.flavor_text_entries.map((x) => {
         console.log(x);
+        // if (x.language.name === "en") {
+        //   setPokemonTrivia((prevPokemonTrivia) => [
+        //     ...prevPokemonTrivia,
+        //     x.flavor_text,
+        //   ]);
+        // }
+        
         if (x.language.name === "en") {
-          setPokemonTrivia([...pokemonTrivia, x.flavor_text]);
+          speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
         }
-        return;
+
+        let dupRemove = new Set(speciesRequestTrivia)
+        setPokemonTrivia([...dupRemove])
       });
     }
 
