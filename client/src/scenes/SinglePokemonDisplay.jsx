@@ -20,6 +20,8 @@ const SinglePokemonDisplay = () => {
       const request = await axios.get(`/pokemon/${pokemonSelection}`);
       setPokemonSelectedInformation(request.data);
 
+      console.log(request.data);
+
       return request;
     }
     singlePokemon(location.state.pokemonSelection);
@@ -28,7 +30,9 @@ const SinglePokemonDisplay = () => {
     <Box className="singlePokemonOuterContainer">
       <Box className="singlePokemonInnerContainer">
         <h1>{pokemonSelectedInformation.name}</h1>
-        <h2>{pokemonSelectedInformation.weight}</h2>
+        <h2>Weight: {pokemonSelectedInformation.weight}</h2>
+        <h2>Pokemon ID:{pokemonSelectedInformation.id}</h2>
+
         {pokemonSelectedInformation != "" && (
           <>
             <Box className="pokemonImageDisplay">
@@ -36,8 +40,9 @@ const SinglePokemonDisplay = () => {
                 imageData={pokemonSelectedInformation.sprites.front_default}
                 pokemonName={pokemonSelectedInformation.name}
               />
+              <PokemonTriviaDisplay source={location.state.pokemonSelection} />
             </Box>
-            <PokemonTriviaDisplay source={location.state.pokemonSelection} />
+            
           </>
         )}
       </Box>

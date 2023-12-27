@@ -35,7 +35,7 @@ const PokemonTriviaDisplay = ({ source }) => {
     <Box>
       <h1>Hello world</h1>
       {pokemonTrivia.map((x) => {
-        return <h1 id={x}>{x}</h1>;
+        return <p id={x}>{x}</p>;
       })}
     </Box>
   );
