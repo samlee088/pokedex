@@ -16,3 +16,9 @@
   height: 50%;
   margin-bottom: 10px;
 }
+
+.slick-list {
+  margin-left: auto;
+  margin-right: auto;
+  height: 95vh; /* 100% of the viewport height */
+}

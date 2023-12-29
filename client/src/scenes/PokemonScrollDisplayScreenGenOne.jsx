@@ -7,6 +7,8 @@ import "./PokemonScrollDisplayScreenGen.css";
 import { Box } from "@mui/material";
 import LoadingDisplay from "components/LoadingDisplay";
 import PokedexImageClick from "components/PokedexImageClick";
+import SingleImageDisplay from "components/SingleImageDisplay";
+import PokemonTriviaDisplay from "components/PokemonTriviaDisplay";
 
 const PokemonScrollDisplayScreenGenOne = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -19,18 +21,22 @@ const PokemonScrollDisplayScreenGenOne = () => {
         const request = await axios.get(`/pokemon/${i}`);
         const speciesRequest = await axios.get(`/pokemon-species/${i}`);
         let speciesRequestTrivia = [];
-        speciesRequest.data.flavor_text_entries.map((x) => {
-          console.log(x);
+        let final = [];
+        speciesRequest.data.flavor_text_entries.forEach((x) => {
           if (x.language.name === "en") {
             speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
           }
-          
+  
+          let dupRemove = new Set(speciesRequestTrivia);
+          final = ([...dupRemove]);
         })
+        
+        
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
           pokemonNumber: `${i}`,
-          pokemonTrivia: speciesRequestTrivia,
+          pokemonTrivia: final,
         });
       }
       setPokemonData(array);
@@ -89,9 +95,18 @@ const PokemonScrollDisplayScreenGenOne = () => {
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
                   <PokedexImageClick pokemonData={x} />
-                  {x.pokemonTrivia.map((x) => {
-        return <h1 id={x}>{x}</h1>;
-      })}
+                  <Box
+                    sx={{
+                      maxHeight: "300px", // Set the maximum height as per your requirement
+                      overflowY: "auto",
+                    }}
+                  >
+                    <h1>Hello world</h1>
+                    {x.pokemonTrivia.map((x, index) => {
+                      return <p key={index}>{x}</p>;
+                    })}
+                  </Box>
+
                 </div>
               ))}
             </Slider>

@@ -10,21 +10,13 @@ const PokemonTriviaDisplay = ({ source }) => {
       const speciesRequest = await axios.get(`/pokemon-species/${pokemonID}`);
       console.log(speciesRequest.data);
       let speciesRequestTrivia = [];
-      speciesRequest.data.flavor_text_entries.map((x) => {
-        console.log(x);
-        // if (x.language.name === "en") {
-        //   setPokemonTrivia((prevPokemonTrivia) => [
-        //     ...prevPokemonTrivia,
-        //     x.flavor_text,
-        //   ]);
-        // }
-        
+      speciesRequest.data.flavor_text_entries.forEach((x) => {
         if (x.language.name === "en") {
           speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
         }
 
-        let dupRemove = new Set(speciesRequestTrivia)
-        setPokemonTrivia([...dupRemove])
+        let dupRemove = new Set(speciesRequestTrivia);
+        setPokemonTrivia([...dupRemove]);
       });
     }
 
@@ -32,10 +24,15 @@ const PokemonTriviaDisplay = ({ source }) => {
   }, [source]);
 
   return (
-    <Box>
+    <Box
+      sx={{
+        maxHeight: "300px", // Set the maximum height as per your requirement
+        overflowY: "auto",
+      }}
+    >
       <h1>Hello world</h1>
-      {pokemonTrivia.map((x) => {
-        return <p id={x}>{x}</p>;
+      {pokemonTrivia.map((x, index) => {
+        return <p key={index}>{x}</p>;
       })}
     </Box>
   );
