@@ -1,8 +1,9 @@
-import CharzardImage from "components/CharzardImage";
+// HomepageLayout.jsx
 import React from "react";
 import "./HomepageLayout.css";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import CharzardImage from "components/CharzardImage";
 import CharzardImageGif from "components/CharzardImageGif";
 import CharmanderMarshmellowGif from "components/CharmanderMarshemllowGif";
 import CharmanderImageGif from "components/CharmanderImageGif";
@@ -40,7 +41,9 @@ const HomepageLayout = () => {
 
   return (
     <Box className="mainPageLayout">
-      <h1>Pokedex Main Intro Page</h1>
+      <Typography variant="h1" gutterBottom>
+        Pokedex Main Intro Page
+      </Typography>
       <CharzardImage />
 
       <Box className="generationLayOut">
@@ -52,9 +55,14 @@ const HomepageLayout = () => {
               className="boxLink"
               key={index}
             >
-              <Box className="box">{x}</Box>
-              <Box className="box">
-                <h1>Gen {index + 1}</h1>
+              <Box className='outerContainer'>
+                <Box className="description">
+                  <Typography variant="h2">Gen {index + 1}</Typography>
+                </Box>
+
+                <Box className="box">
+                  <Box className="image">{x}</Box>
+                </Box>
               </Box>
             </Link>
           );

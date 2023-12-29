@@ -1,3 +1,4 @@
+/* HomepageLayout.css */
 .mainPageLayout {
   text-align: center;
   margin: auto;
@@ -5,16 +6,28 @@
 }
 
 .boxLink {
-  flex: 1;
+  flex: 1 0 calc(33.33% - 16px); /* Adjust the width and gap to your desired size */
+  text-decoration: none;
+}
+
+.outerContainer {
+  
 }
 
 .box {
   flex: 1;
   box-sizing: border-box;
-  width: 400px; /* Adjust the width to your desired size */
-  height: 400px; /* Adjust the height to your desired size */
+  width: 300px; /* Adjust the width to your desired size */
+  height: 300px; /* Adjust the height to your desired size */
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.box:hover {
+  transform: scale(1.05);
 }
 
 .box img {
@@ -24,6 +37,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 12px;
+  margin: auto;
 }
 
 .generationLayOut {
@@ -33,4 +48,12 @@
   justify-content: center; /* Center horizontally */
   gap: 16px;
   margin-top: 20px;
+}
+
+.description {
+  margin: 8px; /* Adjust the margin for spacing */
+}
+
+.image {
+  margin: 8px; /* Adjust the margin for spacing */
 }
