@@ -4,7 +4,6 @@ import { Box } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
-import PokemonTriviaDisplay from "components/PokemonTriviaDisplay";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
@@ -40,9 +39,17 @@ const SinglePokemonDisplay = () => {
                 imageData={pokemonSelectedInformation.sprites.front_default}
                 pokemonName={pokemonSelectedInformation.name}
               />
-              <PokemonTriviaDisplay source={location.state.pokemonSelection} />
             </Box>
-            
+            <Box>
+              <h1>Pokemon Stats</h1>
+              {pokemonSelectedInformation.stats.map((statInfo) => {
+                return (
+                  <h1>
+                    {statInfo.stat.name}: {statInfo.base_stat}
+                  </h1>
+                );
+              })}
+            </Box>
           </>
         )}
       </Box>
