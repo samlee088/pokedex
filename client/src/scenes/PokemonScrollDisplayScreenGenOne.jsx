@@ -26,12 +26,11 @@ const PokemonScrollDisplayScreenGenOne = () => {
           if (x.language.name === "en") {
             speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
           }
-  
+
           let dupRemove = new Set(speciesRequestTrivia);
-          final = ([...dupRemove]);
-        })
-        
-        
+          final = [...dupRemove];
+        });
+
         array.push({
           pokemonName: request.data.name,
           pokemonSprite: request.data.sprites.front_default,
@@ -97,16 +96,14 @@ const PokemonScrollDisplayScreenGenOne = () => {
                   <PokedexImageClick pokemonData={x} />
                   <Box
                     sx={{
-                      maxHeight: "300px", // Set the maximum height as per your requirement
+                      maxHeight: "300px",
                       overflowY: "auto",
                     }}
                   >
-                    <h1>Hello world</h1>
                     {x.pokemonTrivia.map((x, index) => {
                       return <p key={index}>{x}</p>;
                     })}
                   </Box>
-
                 </div>
               ))}
             </Slider>

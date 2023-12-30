@@ -21,6 +21,8 @@
   width: 30%;
   height: auto;
   cursor: pointer;
+  background-color: skyblue;
+  border-radius: 50%;
 }
 
 .slick-prev:before,
