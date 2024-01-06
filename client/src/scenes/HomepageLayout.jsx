@@ -2,7 +2,7 @@
 import React from "react";
 import "./HomepageLayout.css";
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CharzardImage from "components/CharzardImage";
 import CharzardImageGif from "components/CharzardImageGif";
 import CharmanderMarshmellowGif from "components/CharmanderMarshemllowGif";
@@ -27,17 +27,13 @@ const HomepageLayout = () => {
     <PikachuWateringPlantImageGif />,
   ];
 
-  let numberToText = [
-    "One",
-    "Two",
-    "Three",
-    "Four",
-    "Five",
-    "Six",
-    "Seven",
-    "Eight",
-    "Nine",
-  ];
+  const navigate = useNavigate();
+
+  async function PokemonGenerationSelectionRoute(generationSelection) {
+    navigate("/pokedexGeneration", {
+      state: { generationSelection: generationSelection },
+    });
+  }
 
   return (
     <Box className="mainPageLayout">
@@ -48,14 +44,13 @@ const HomepageLayout = () => {
 
       <Box className="generationLayOut">
         {imageArray.map((x, index) => {
-          const textFormat = numberToText[index];
           return (
-            <Link
-              to={`PokemonScrollDisplayScreenGen${textFormat}`}
+            <div
               className="boxLink"
               key={index}
+              onClick={() => PokemonGenerationSelectionRoute(index + 1)}
             >
-              <Box className='outerContainer'>
+              <Box className="outerContainer">
                 <Box className="description">
                   <Typography variant="h2">Gen {index + 1}</Typography>
                 </Box>
@@ -64,7 +59,7 @@ const HomepageLayout = () => {
                   <Box className="image">{x}</Box>
                 </Box>
               </Box>
-            </Link>
+            </div>
           );
         })}
       </Box>

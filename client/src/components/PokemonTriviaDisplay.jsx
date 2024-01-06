@@ -8,6 +8,7 @@ const PokemonTriviaDisplay = ({ source }) => {
       sx={{
         maxHeight: "300px", // Set the maximum height as per your requirement
         overflowY: "auto",
+        backgroundColor: "#f0f0f0",
       }}
     >
       {source.map((x, index) => {
