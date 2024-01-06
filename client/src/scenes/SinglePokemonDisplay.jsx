@@ -38,8 +38,8 @@ const SinglePokemonDisplay = () => {
               <SingleImageDisplay
                 imageData={pokemonSelectedInformation.sprites.front_default}
                 pokemonName={pokemonSelectedInformation.name}
-              />
-            </Box>
+                />
+              </Box>
             <Box>
               <h1>Pokemon Stats</h1>
               {pokemonSelectedInformation.stats.map((statInfo) => {

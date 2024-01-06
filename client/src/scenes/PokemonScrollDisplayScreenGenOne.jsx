@@ -94,16 +94,8 @@ const PokemonScrollDisplayScreenGenOne = () => {
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
                   <PokedexImageClick pokemonData={x} />
-                  <Box
-                    sx={{
-                      maxHeight: "300px",
-                      overflowY: "auto",
-                    }}
-                  >
-                    {x.pokemonTrivia.map((x, index) => {
-                      return <p key={index}>{x}</p>;
-                    })}
-                  </Box>
+
+                  <PokemonTriviaDisplay source={x.pokemonTrivia} />
                 </div>
               ))}
             </Slider>
