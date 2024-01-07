@@ -13,6 +13,7 @@ import SquirtleEatingImageGif from "components/SquirtleEatingImageGif";
 import SquirtleGroupImageGif from "components/SquirtleGroupImageGif";
 import PikachuImageGif from "components/PikachuImageGif";
 import PikachuWateringPlantImageGif from "components/PikachuWateringPlantImageGif";
+import EmblaCarousel from "components/EmblaCarousel";
 
 const HomepageLayout = () => {
   let imageArray = [
@@ -41,8 +42,9 @@ const HomepageLayout = () => {
         Pokedex Main Intro Page
       </Typography>
       <CharzardImage />
+      <EmblaCarousel />
 
-      <Box className="generationLayOut">
+      {/* <Box className="generationLayOut">
         {imageArray.map((x, index) => {
           return (
             <div
@@ -62,7 +64,7 @@ const HomepageLayout = () => {
             </div>
           );
         })}
-      </Box>
+      </Box> */}
     </Box>
   );
 };
