@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "utils/axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -34,32 +34,45 @@ const PokemonScrollDisplayMaster = () => {
       let start = generationData[selection][0];
       let end = generationData[selection][1];
 
+      const requests = [];
       for (let i = start; i <= end; i++) {
-        const request = await axios.get(`/pokemon/${i}`);
-        const speciesRequest = await axios.get(`/pokemon-species/${i}`);
-        let speciesRequestTrivia = [];
-        let final = [];
-        speciesRequest.data.flavor_text_entries.forEach((x) => {
-          if (x.language.name === "en") {
-            speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
-          }
+        requests.push(axios.get(`/pokemon/${i}`));
+      }
+
+      const responses = await Promise.all(requests);
+      array = await Promise.all(
+        responses.map(async (response) => {
+          const pokemon = response.data;
+          const pokemonNumber = pokemon.id;
+
+          // Second API call for species information
+          const speciesResponse = await axios.get(`/pokemon-species/${pokemonNumber}`);
+          let speciesRequestTrivia = [];
+          speciesResponse.data.flavor_text_entries.forEach((x) => {
+            if (x.language.name === "en") {
+              speciesRequestTrivia = [...speciesRequestTrivia, x.flavor_text];
+            }
+          });
 
           let dupRemove = new Set(speciesRequestTrivia);
-          final = [...dupRemove];
-        });
+          const final = [...dupRemove];
 
-        array.push({
-          pokemonName: request.data.name,
-          pokemonSprite: request.data.sprites.front_default,
-          pokemonNumber: `${i}`,
-          pokemonTrivia: final,
-        });
-      }
+          return {
+            pokemonName: pokemon.name,
+            pokemonSprite: pokemon.sprites.front_default,
+            pokemonNumber: `${pokemonNumber}`,
+            pokemonTrivia: final,
+          };
+        })
+      );
+
       setPokemonData(array);
     }
 
     fetchData();
   }, [location.state.generationSelection]);
+
+  const memoizedPokemonData = useMemo(() => pokemonData, [pokemonData]);
 
   const settings = {
     dots: true,
@@ -104,14 +117,13 @@ const PokemonScrollDisplayMaster = () => {
           height: "100vh",
         }}
       >
-        {pokemonData.length > 0 ? (
+        {memoizedPokemonData.length > 0 ? (
           <Box style={{ width: "80%" }}>
             <Slider {...settings}>
-              {pokemonData.map((x, index) => (
+              {memoizedPokemonData.map((x, index) => (
                 <div key={index}>
                   <h1>{x.pokemonName}</h1>
                   <PokedexImageClick pokemonData={x} />
-
                   <PokemonTriviaDisplay source={x.pokemonTrivia} />
                 </div>
               ))}

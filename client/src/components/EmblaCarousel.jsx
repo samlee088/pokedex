@@ -28,7 +28,6 @@ let imageArray = [
 
 Autoplay.globalOptions = { delay: 2000 };
 
-
 const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const navigate = useNavigate();

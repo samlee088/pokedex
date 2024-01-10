@@ -28,9 +28,8 @@ const SinglePokemonDisplay = () => {
   return (
     <Box className="singlePokemonOuterContainer">
       <Box className="singlePokemonInnerContainer">
-        <h1>{pokemonSelectedInformation.name}</h1>
+        <h1>{pokemonSelectedInformation.name} #{pokemonSelectedInformation.id}</h1>
         <h2>Weight: {pokemonSelectedInformation.weight}</h2>
-        <h2>Pokemon ID:{pokemonSelectedInformation.id}</h2>
 
         {pokemonSelectedInformation != "" && (
           <>

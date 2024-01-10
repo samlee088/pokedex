@@ -13,3 +13,27 @@
   touch-action: pan-y;
   margin-left: calc(var(--slide-spacing) * -1);
 }
+
+.outerContainer {
+  
+}
+
+.description {
+  margin: 8px; /* Adjust the margin for spacing */
+}
+.image {
+  margin: 8px; /* Adjust the margin for spacing */
+}
+
+
+.box {
+  flex: 1;
+  box-sizing: border-box;
+  width: 300px; /* Adjust the width to your desired size */
+  height: 300px; /* Adjust the height to your desired size */
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+  
+}
