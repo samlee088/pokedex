@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
+import PokemonStatsGridDisplay from "components/PokemonStatsGridDisplay";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
@@ -28,7 +29,9 @@ const SinglePokemonDisplay = () => {
   return (
     <Box className="singlePokemonOuterContainer">
       <Box className="singlePokemonInnerContainer">
-        <h1>{pokemonSelectedInformation.name} #{pokemonSelectedInformation.id}</h1>
+        <h1>
+          {pokemonSelectedInformation.name} #{pokemonSelectedInformation.id}
+        </h1>
         <h2>Weight: {pokemonSelectedInformation.weight}</h2>
 
         {pokemonSelectedInformation != "" && (
@@ -41,13 +44,16 @@ const SinglePokemonDisplay = () => {
             </Box>
             <Box>
               <h1>Pokemon Stats</h1>
-              {pokemonSelectedInformation.stats.map((statInfo) => {
+              <PokemonStatsGridDisplay
+                pokemonStats={pokemonSelectedInformation.stats}
+              />
+              {/* {pokemonSelectedInformation.stats.map((statInfo) => {
                 return (
                   <h1>
                     {statInfo.stat.name}: {statInfo.base_stat}
                   </h1>
                 );
-              })}
+              })} */}
             </Box>
           </>
         )}
