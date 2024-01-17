@@ -15,19 +15,22 @@
 }
 
 .outerContainer {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 400px;
 }
 
 .description {
   margin: 8px; /* Adjust the margin for spacing */
 }
+
 .image {
   margin: 8px; /* Adjust the margin for spacing */
 }
 
-
 .box {
-  flex: 1;
   box-sizing: border-box;
   width: 300px; /* Adjust the width to your desired size */
   height: 300px; /* Adjust the height to your desired size */
@@ -35,5 +38,15 @@
   position: relative;
   border-radius: 12px;
   transition: transform 0.3s ease-in-out;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the image takes up its original size */
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

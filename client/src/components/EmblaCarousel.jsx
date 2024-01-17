@@ -39,8 +39,6 @@ const EmblaCarousel = () => {
   }
 
   return (
-    // <div className="embla" ref={emblaRef}>
-    //   <div className="embla__container">
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
@@ -63,8 +61,6 @@ const EmblaCarousel = () => {
               </div>
             );
           })}
-          {/* </div>
-    </div> */}
         </div>
       </div>
     </div>
