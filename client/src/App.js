@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomepageLayout from "scenes/HomepageLayout";
 import SinglePokemonDisplay from "scenes/SinglePokemonDisplay";
 import PokemonScrollDisplayMaster from "scenes/PokemonScrollDisplayMaster";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 import { PrimeReactProvider } from "primereact/api";
 

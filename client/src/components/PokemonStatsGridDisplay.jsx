@@ -15,15 +15,15 @@ const PokemonStatsGridDisplay = ({ pokemonStats }) => {
     });
     setProducts(scrubbedPokemonStats);
   }, []);
-  console.log(pokemonStats);
-  console.log(products);
 
   return (
     <div className="card">
       <DataTable
         value={products}
         removableSort
+        stripedRows
         tableStyle={{ minWidth: "50rem" }}
+        
       >
         <Column
           field="stat_name"

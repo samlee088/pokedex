@@ -7,7 +7,7 @@
   max-width: 70%; /* Adjust the max-width as needed */
   margin: auto;
   height: 100vh; /* 100% of the viewport height */
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
 }
 
 .pokemonImageDisplay {
