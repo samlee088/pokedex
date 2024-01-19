@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 const CharzardImage = () => {
   return (
     <Box>
-      <img src={charzardImage} alt="CharzardImage" />
+      <img src={charzardImage} alt="CharzardImage" width="70" height="70" />
     </Box>
   );
 };

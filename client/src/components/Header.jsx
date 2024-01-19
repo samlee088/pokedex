@@ -1,15 +1,14 @@
 import React from "react";
-import charzardImage from "../images/charzardImage.png";
-import { Image } from "primereact/image";
 import { Link } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
 import "./Header.css";
+import CharzardImage from "./imagesComponents/CharzardImage";
 
 const Header = () => {
   const startContent = (
     <React.Fragment>
       <Link to="/">
-        <Image src={charzardImage} width="90" height="100" />
+        <CharzardImage />
       </Link>
     </React.Fragment>
   );
