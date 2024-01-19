@@ -3,7 +3,7 @@ import React from "react";
 import "./HomepageLayout.css";
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import CharzardImage from "components/CharzardImage";
+import CharzardImage from "components/images/CharzardImage";
 import EmblaCarousel from "components/EmblaCarousel";
 
 const HomepageLayout = () => {
