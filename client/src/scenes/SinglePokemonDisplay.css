@@ -10,6 +10,10 @@
   background-color: #eee2dc;
 }
 
+.singlePokemonInnerContainer {
+  margin-top: 5%;
+}
+
 .pokemonImageDisplay {
   text-align: center;
   margin: auto;
