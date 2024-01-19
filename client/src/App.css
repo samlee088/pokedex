@@ -1,3 +1,11 @@
+body {
+  margin: 0; /* Remove default body margin */
+  background-color: #eee2dc; /* Set background color for the entire page */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body takes at least the full viewport height */
+}
+
 .Pokedex {
 }
 
@@ -13,8 +21,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

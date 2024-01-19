@@ -47,13 +47,6 @@ const SinglePokemonDisplay = () => {
               <PokemonStatsGridDisplay
                 pokemonStats={pokemonSelectedInformation.stats}
               />
-              {/* {pokemonSelectedInformation.stats.map((statInfo) => {
-                return (
-                  <h1>
-                    {statInfo.stat.name}: {statInfo.base_stat}
-                  </h1>
-                );
-              })} */}
             </Box>
           </>
         )}
