@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 const LoadingDisplay = () => {
   return (
-    <Box>
+    <Box style={{ marginTop: "5%" }}>
       <h1>Loading Hold Please 😊💕🥲😐</h1>
       <img
         src={SnorlaxSleeping}

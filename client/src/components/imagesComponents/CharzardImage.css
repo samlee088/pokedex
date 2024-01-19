@@ -1,0 +1,8 @@
+.image-container {
+    cursor: pointer;
+    transition: opacity 0.5s ease; /* Add a smooth transition effect */
+  }
+  
+  .clicked {
+    opacity: 0.5; /* Change the opacity value as needed */
+  }
