@@ -7,10 +7,6 @@ import EmblaCarousel from "components/EmblaCarousel";
 const HomepageLayout = () => {
   return (
     <Box className="mainPageLayout">
-      <Typography variant="h1" gutterBottom>
-        Pokedex
-      </Typography>
-
       <EmblaCarousel />
     </Box>
   );

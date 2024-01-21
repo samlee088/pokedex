@@ -23,20 +23,21 @@ const PokemonStatsGridDisplay = ({ pokemonStats }) => {
         removableSort
         stripedRows
         tableStyle={{ minWidth: "50rem" }}
-        
       >
         <Column
           field="stat_name"
           header="Stat"
           sortable
           style={{ width: "50%" }}
-        ></Column>
+          
+        />
         <Column
           field="base_stat"
           header="Value"
           sortable
-          style={{ width: "50%" }}
-        ></Column>
+          style={{ width: "80%" }}
+          
+        />
       </DataTable>
     </div>
   );

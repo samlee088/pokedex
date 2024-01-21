@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
 import "./Header.css";
 import CharzardImage from "./imagesComponents/CharzardImage";
+import PokemonPokedexLogo from '../images/pokedex_vector_logo.png'
 
 const Header = () => {
   const startContent = (
@@ -13,7 +14,12 @@ const Header = () => {
     </React.Fragment>
   );
 
-  const centerContent = <div></div>;
+  const centerContent = <div>
+     <img
+          src={PokemonPokedexLogo}
+          alt="PokemonPokedexImage"
+        />
+  </div>;
 
   const endContent = <React.Fragment></React.Fragment>;
 

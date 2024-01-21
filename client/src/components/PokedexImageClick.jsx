@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import "scenes/PokemonScrollDisplayScreenGen.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PokedexImageClick = ({ pokemonData }) => {
   const navigate = useNavigate();

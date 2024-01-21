@@ -1,10 +1,16 @@
 .card {
-    width:auto;
-    font-size: x-large;
-    align-items: center;
-    /* background-color: beige; */
+  width: auto;
+  font-size: x-large;
+  /* background-color: beige; */
 }
+
 .p-column-header-content {
-    
-    justify-content: center;
+  justify-content: center;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-width: 0 0 1px 0;
+  padding: 1rem 1rem;
 }
