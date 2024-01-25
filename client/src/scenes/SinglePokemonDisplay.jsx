@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
 import PokemonStatsGridDisplay from "components/PokemonStatsGridDisplay";
+import PokemonTypeDisplay from "components/PokemonTypeDisplay";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
@@ -40,6 +41,11 @@ const SinglePokemonDisplay = () => {
               <SingleImageDisplay
                 imageData={pokemonSelectedInformation.sprites.front_default}
                 pokemonName={pokemonSelectedInformation.name}
+              />
+            </Box>
+            <Box>
+              <PokemonTypeDisplay
+                pokemonTypeData={pokemonSelectedInformation.types}
               />
             </Box>
             <Box>

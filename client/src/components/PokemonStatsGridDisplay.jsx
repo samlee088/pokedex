@@ -14,7 +14,7 @@ const PokemonStatsGridDisplay = ({ pokemonStats }) => {
       };
     });
     setProducts(scrubbedPokemonStats);
-  }, []);
+  }, [pokemonStats]);
 
   return (
     <div className="card">
@@ -29,14 +29,12 @@ const PokemonStatsGridDisplay = ({ pokemonStats }) => {
           header="Stat"
           sortable
           style={{ width: "50%" }}
-          
         />
         <Column
           field="base_stat"
           header="Value"
           sortable
           style={{ width: "80%" }}
-          
         />
       </DataTable>
     </div>
