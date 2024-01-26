@@ -1,3 +1,11 @@
+.outerContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .singlePokemonOuterContainer {
   display: flex;
   flex-direction: column;
@@ -8,7 +16,6 @@
   margin: auto;
   height: 100vh; /* 100% of the viewport height */
 }
-
 .singlePokemonInnerContainer {
   margin-top: 5%;
 }
@@ -20,7 +27,6 @@
   align-items: center;
   width: 20vw;
   height: auto;
-  cursor: pointer;
   background-color: skyblue;
   border-radius: 50%;
 }

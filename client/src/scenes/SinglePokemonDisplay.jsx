@@ -6,11 +6,15 @@ import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
 import PokemonStatsGridDisplay from "components/PokemonStatsGridDisplay";
 import PokemonTypeDisplay from "components/PokemonTypeDisplay";
+import { Button } from "primereact/button";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
   const [pokemonSelectedInformation, setPokemonSelectedInformation] =
     useState("");
+  const [prevNextPokemonInformation, setprevNextPokemonInformation] = useState(
+    []
+  );
 
   useEffect(() => {
     console.log(location);
@@ -23,41 +27,79 @@ const SinglePokemonDisplay = () => {
 
       console.log(request.data);
 
+      let prevNext = [];
+      if (pokemonSelection >= 2) {
+        const request = await axios.get(`/pokemon/${pokemonSelection - 1}`);
+        prevNext.push(request.data);
+      }
+      if (pokemonSelection <= 1009) {
+        const request = await axios.get(`/pokemon/${pokemonSelection + 1}`);
+        prevNext.push(request.data);
+      }
+
+      setprevNextPokemonInformation(prevNext);
+      console.log(prevNext);
       return request;
     }
-    singlePokemon(location.state.pokemonSelection);
+    singlePokemon(Number(location.state.pokemonSelection));
   }, [location.state.pokemonSelection]);
   return (
-    <Box className="singlePokemonOuterContainer">
-      <Box className="singlePokemonInnerContainer">
-        <h1>
-          {pokemonSelectedInformation.name} #{pokemonSelectedInformation.id}
-        </h1>
-        <h2>Weight: {pokemonSelectedInformation.weight}</h2>
+    <>
+      <Box className="outerContainer">
+        {prevNextPokemonInformation && prevNextPokemonInformation.length && (
+          <div className="button-container top-left">
+            <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
+              <img
+                alt="logo"
+                src={prevNextPokemonInformation[0].sprites.front_default}
+                className="h-2rem"
+              />
+            </Button>
+          </div>
+        )}
+        <Box className="singlePokemonOuterContainer">
+          <Box className="singlePokemonInnerContainer">
+            <h1>
+              {pokemonSelectedInformation.name} #{pokemonSelectedInformation.id}
+            </h1>
+            <h2>Weight: {pokemonSelectedInformation.weight}</h2>
 
-        {pokemonSelectedInformation != "" && (
-          <>
-            <Box className="pokemonImageDisplay">
-              <SingleImageDisplay
-                imageData={pokemonSelectedInformation.sprites.front_default}
-                pokemonName={pokemonSelectedInformation.name}
+            {pokemonSelectedInformation != "" && (
+              <>
+                <Box className="pokemonImageDisplay">
+                  <SingleImageDisplay
+                    imageData={pokemonSelectedInformation.sprites.front_default}
+                    pokemonName={pokemonSelectedInformation.name}
+                  />
+                </Box>
+                <Box>
+                  <PokemonTypeDisplay
+                    pokemonTypeData={pokemonSelectedInformation.types}
+                  />
+                </Box>
+                <Box>
+                  <h1>Pokemon Stats</h1>
+                  <PokemonStatsGridDisplay
+                    pokemonStats={pokemonSelectedInformation.stats}
+                  />
+                </Box>
+              </>
+            )}
+          </Box>
+        </Box>
+        {prevNextPokemonInformation && prevNextPokemonInformation.length && (
+          <div className="button-container top-left">
+            <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
+              <img
+                alt="logo"
+                src={prevNextPokemonInformation[1].sprites.front_default}
+                className="h-2rem"
               />
-            </Box>
-            <Box>
-              <PokemonTypeDisplay
-                pokemonTypeData={pokemonSelectedInformation.types}
-              />
-            </Box>
-            <Box>
-              <h1>Pokemon Stats</h1>
-              <PokemonStatsGridDisplay
-                pokemonStats={pokemonSelectedInformation.stats}
-              />
-            </Box>
-          </>
+            </Button>
+          </div>
         )}
       </Box>
-    </Box>
+    </>
   );
 };
 
