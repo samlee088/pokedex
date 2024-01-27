@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import "./EmblaCarousel.css";
@@ -49,7 +49,7 @@ const EmblaCarousel = () => {
                 key={index}
                 onClick={() => PokemonGenerationSelectionRoute(index + 1)}
               >
-                <Box className="outerContainer">
+                <Box className="homepageOuterContainer">
                   <Box className="description">
                     <Typography variant="h2">Gen {index + 1}</Typography>
                   </Box>

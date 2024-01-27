@@ -12,9 +12,9 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  max-width: 70%; /* Adjust the max-width as needed */
+  max-width: 70%; 
   margin: auto;
-  height: 100vh; /* 100% of the viewport height */
+  height: 100vh; 
 }
 .singlePokemonInnerContainer {
   margin-top: 5%;

@@ -31,10 +31,14 @@ const SinglePokemonDisplay = () => {
       if (pokemonSelection >= 2) {
         const request = await axios.get(`/pokemon/${pokemonSelection - 1}`);
         prevNext.push(request.data);
+      } else {
+        prevNext.push("end");
       }
       if (pokemonSelection <= 1009) {
         const request = await axios.get(`/pokemon/${pokemonSelection + 1}`);
         prevNext.push(request.data);
+      } else {
+        prevNext.push("end");
       }
 
       setprevNextPokemonInformation(prevNext);
