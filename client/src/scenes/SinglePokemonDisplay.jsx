@@ -52,6 +52,7 @@ const SinglePokemonDisplay = () => {
       <Box className="outerContainer">
         {prevNextPokemonInformation && prevNextPokemonInformation.length && (
           <div className="button-container top-left">
+            <h2>{prevNextPokemonInformation[0].name} #{prevNextPokemonInformation[0].id}</h2>
             <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
               <img
                 alt="logo"
@@ -93,6 +94,7 @@ const SinglePokemonDisplay = () => {
         </Box>
         {prevNextPokemonInformation && prevNextPokemonInformation.length && (
           <div className="button-container top-left">
+            <h2>{prevNextPokemonInformation[1].name} #{prevNextPokemonInformation[1].id}</h2>
             <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
               <img
                 alt="logo"

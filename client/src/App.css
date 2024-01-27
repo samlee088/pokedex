@@ -1,9 +1,9 @@
 body {
-  margin: 0; /* Remove default body margin */
-  background-color: #eee2dc; /* Set background color for the entire page */
+  margin: 0;
+  background-color: #eee2dc; 
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure body takes at least the full viewport height */
+  min-height: 100vh; 
 }
 
 .Pokedex {
