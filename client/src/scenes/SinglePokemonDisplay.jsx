@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./SinglePokemonDisplay.css";
 import { Box } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "utils/axios";
 import SingleImageDisplay from "components/SingleImageDisplay";
 import PokemonStatsGridDisplay from "components/PokemonStatsGridDisplay";
@@ -10,6 +10,8 @@ import { Button } from "primereact/button";
 
 const SinglePokemonDisplay = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  
   const [pokemonSelectedInformation, setPokemonSelectedInformation] =
     useState("");
   const [prevNextPokemonInformation, setprevNextPokemonInformation] = useState(
@@ -47,21 +49,38 @@ const SinglePokemonDisplay = () => {
     }
     singlePokemon(Number(location.state.pokemonSelection));
   }, [location.state.pokemonSelection]);
+
+  async function singlePokemonRoute(pokemonSelection) {
+    navigate("/singlePokemon", {
+      state: { pokemonSelection: pokemonSelection },
+    });
+  }
+
   return (
     <>
       <Box className="outerContainer">
-        {prevNextPokemonInformation && prevNextPokemonInformation.length && (
-          <div className="button-container top-left">
-            <h2>{prevNextPokemonInformation[0].name} #{prevNextPokemonInformation[0].id}</h2>
-            <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
-              <img
-                alt="logo"
-                src={prevNextPokemonInformation[0].sprites.front_default}
-                className="h-2rem"
-              />
-            </Button>
-          </div>
-        )}
+        {prevNextPokemonInformation &&
+          prevNextPokemonInformation.length &&
+          prevNextPokemonInformation[0] != "end" && (
+            <div className="button-container top-left">
+              <h2>
+                {prevNextPokemonInformation[0].name} #
+                {prevNextPokemonInformation[0].id}
+              </h2>
+              <Button
+                className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700"
+                onClick={() =>
+                  singlePokemonRoute(prevNextPokemonInformation[0].id)
+                }
+              >
+                <img
+                  alt="logo"
+                  src={prevNextPokemonInformation[0].sprites.front_default}
+                  className="h-2rem"
+                />
+              </Button>
+            </div>
+          )}
         <Box className="singlePokemonOuterContainer">
           <Box className="singlePokemonInnerContainer">
             <h1>
@@ -92,18 +111,25 @@ const SinglePokemonDisplay = () => {
             )}
           </Box>
         </Box>
-        {prevNextPokemonInformation && prevNextPokemonInformation.length && (
-          <div className="button-container top-left">
-            <h2>{prevNextPokemonInformation[1].name} #{prevNextPokemonInformation[1].id}</h2>
-            <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700">
-              <img
-                alt="logo"
-                src={prevNextPokemonInformation[1].sprites.front_default}
-                className="h-2rem"
-              />
-            </Button>
-          </div>
-        )}
+        {prevNextPokemonInformation &&
+          prevNextPokemonInformation.length &&
+          prevNextPokemonInformation[1] != "end" && (
+            <div className="button-container top-left">
+              <h2>
+                {prevNextPokemonInformation[1].name} #
+                {prevNextPokemonInformation[1].id}
+              </h2>
+              <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700"  onClick={() =>
+                  singlePokemonRoute(prevNextPokemonInformation[1].id)
+                }>
+                <img
+                  alt="logo"
+                  src={prevNextPokemonInformation[1].sprites.front_default}
+                  className="h-2rem"
+                />
+              </Button>
+            </div>
+          )}
       </Box>
     </>
   );
