@@ -11,7 +11,7 @@ import { Button } from "primereact/button";
 const SinglePokemonDisplay = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const [pokemonSelectedInformation, setPokemonSelectedInformation] =
     useState("");
   const [prevNextPokemonInformation, setprevNextPokemonInformation] = useState(
@@ -119,9 +119,12 @@ const SinglePokemonDisplay = () => {
                 {prevNextPokemonInformation[1].name} #
                 {prevNextPokemonInformation[1].id}
               </h2>
-              <Button className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700"  onClick={() =>
+              <Button
+                className="bg-bluegray-600 hover:bg-bluegray-400 border-bluegray-700"
+                onClick={() =>
                   singlePokemonRoute(prevNextPokemonInformation[1].id)
-                }>
+                }
+              >
                 <img
                   alt="logo"
                   src={prevNextPokemonInformation[1].sprites.front_default}
